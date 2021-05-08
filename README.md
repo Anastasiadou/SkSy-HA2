@@ -1,7 +1,7 @@
 # SimpleTodo
 A simple Todo Tracker
 
-## Set up
+## Development
 
 Import this project as a Maven project.
 

@@ -1,16 +1,6 @@
 # SimpleTodo
 A simple Todo Tracker
 
-## Development
-
-Import this project as a Maven project.
-
-For IntelliJ IDEA:
-
-
-Open -> direct to Project Folder -> choose *pom.xml* -> click on *Open as Project*
-
-
 ## How to run
 
 In order to run the Application you need to haven maven installed.
@@ -73,3 +63,13 @@ DELETE http://localhost:8080/todos/id  #Deletes the TODO with the given ID
     "percentage": "0"
 }
 ```
+
+## Development
+
+Import this project as a Maven project.
+
+For IntelliJ IDEA:
+
+
+Open -> direct to Project Folder -> choose *pom.xml* -> click on *Open as Project*
+

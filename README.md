@@ -11,11 +11,27 @@ For IntelliJ IDEA:
 Open -> direct to Project Folder -> choose *pom.xml* -> click on *Open as Project*
 
 
-## Start Up
+## How to run
 
-In order to run the Application just run the *main()* method of the SimpleTodoApplication.java.
+In order to run the Application you need to haven maven installed.
 
-The Application will be reachable at:
+If you have it not installed, use this command:
+
+```bash
+sudo apt-get install mvn
+```
+
+Now run this, it will compile the Application jar:
+```bash
+mvn clean install
+```
+
+After that you can run the Application by executing the compiled jar:
+```bash
+java -jar target/SimpleTodo-0.0.1-SNAPSHOT.jar
+```
+
+The Application will be reachable at port 8080:
 
 ```bash
 http://localhost:8080/

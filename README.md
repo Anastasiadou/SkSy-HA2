@@ -1,21 +1,27 @@
 # SimpleTodo
 A simple Todo Tracker
 
-## Set up
+## How to run
 
-Import this project as a Maven project.
+In order to run the Application you need to haven maven installed.
 
-For IntelliJ IDEA:
+If you have it not installed, use this command:
 
+```bash
+sudo apt-get install mvn
+```
 
-Open -> direct to Project Folder -> choose *pom.xml* -> click on *Open as Project*
+Now run this, it will compile the Application jar:
+```bash
+mvn clean install
+```
 
+After that you can run the Application by executing the compiled jar:
+```bash
+java -jar target/SimpleTodo-0.0.1-SNAPSHOT.jar
+```
 
-## Start Up
-
-In order to run the Application just run the *main()* method of the SimpleTodoApplication.java.
-
-The Application will be reachable at:
+The Application will be reachable at port 8080:
 
 ```bash
 http://localhost:8080/
@@ -57,3 +63,13 @@ DELETE http://localhost:8080/todos/id  #Deletes the TODO with the given ID
     "percentage": "0"
 }
 ```
+
+## Development
+
+Import this project as a Maven project.
+
+For IntelliJ IDEA:
+
+
+Open -> direct to Project Folder -> choose *pom.xml* -> click on *Open as Project*
+

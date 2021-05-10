@@ -1,11 +1,19 @@
 package com.tuberlin.sksy.SimpleTodo.todo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Todo {
 
+    @Id
     private String id;
     private String description;
     private String deadline;
     private String percentage;
+
+    public Todo() {
+    }
 
     public Todo(String id, String description, String deadline, String percentage) {
         this.id = id;

@@ -1,17 +1,29 @@
 # SimpleTodo
 A simple Todo Tracker
 
-## How to run
+## Requirements
 
-In order to run the Application you need to haven maven installed.
+To run this application you need to have at least Java 8, Maven and Docker installed:
 
-If you have it not installed, use this command:
+For Docker visit https://www.docker.com/products/docker-desktop.
+
+To install Maven:
 
 ```bash
 sudo apt-get install mvn
 ```
 
-Now run this, it will compile the Application jar:
+## How to run
+
+First start the MySQL database with docker-compose.
+
+Navigate to the working directory and run: 
+
+```bash
+docker-compose up
+```
+
+After that let Maven compile our Application
 ```bash
 mvn clean install
 ```

@@ -1,27 +1,51 @@
+const myHeaders = new Headers();
+
+const myRequest = new Request("ubersicht.html", {
+  method: "GET",
+  headers: myHeaders,
+  mode: "cors",
+  cache: "default",
+});
+
+fetch(myRequest)
+  .then(response => response.json())
+  .then(data => console.log(data)
+  );
+
+
+
 const ubersicht = document.querySelector(".ubersicht.html");
 const submit = document.querySelector(".submit");
 
 function loadneuesTodo(){
-    fetch("http://localhost:8080/todos")
+    fetch("http://localhost:8080/todos",{
+      method: "POST",
+      mode: "cors",
+      cache: "default" 
+    })
     .then(response => response.json())
     .then(function(neuestodo) {
         neuestodo.forEach(function(todo) {
         const div = document.createElement("div");
         div.innerHTML = todo.name;
-        ubersicht.html.appendChild(div);      
+        ubersicht.appendChild(div);      
     });
    });
 }
 
 submit.addEventListener("click", function() {
-  ubersicht.html.innerHTML = "";
+  ubersicht.innerHTML = "";
   loadneuesTodo();
 })
 
 const deletetodos = document.querySelector(".delete");
 
 function deleteTodo(){
-    fetch("http://localhost:8080/todos/id")
+    fetch("http://localhost:8080/todos/id"),{
+      method: "DELETE",
+      mode: "cors",
+      cache: "default"
+    }
     .then(response => response.json())
     .then(function(deletetodo) {
         deletetodo.forEach(function(todo) {
@@ -44,7 +68,11 @@ deletetodos.addEventListener("click", function() {
 const edit = document.querySelector(".edit");
 
 function editTodo(){
-    fetch("http://localhost:8080/todos/id")
+    fetch("http://localhost:8080/todos/id"),{
+      method: "PUT",
+      mode: "cors",
+      cache: "default" 
+    }
     .then(response => response.json())
     .then(function GetInput () {
             var Input = document.getElementsByClassName("todoEdit").value; 
@@ -56,6 +84,8 @@ edit.addEventListener("click", function() {
   edit.html.innerHTML = '';
   GetInput();
 })
+
+
 
 
 

@@ -12,13 +12,13 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-        <script src="index.js"></script>
+        <script src="main.js"></script>
         <!-- checkbox symbol --> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>HA1</title>
     </head>
 
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column min-vh-100" onload="initUbersicht()">
       <!-- navbar-expand-sm: navbar collapses when width<576px -->
       <!-- navbar outside container so that it takes full width -->
       <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
@@ -30,56 +30,71 @@
           <!-- '#' in href mit Link zur anderen Seite ersetzen-->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="anlegen.html">TODO anlegen</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="edit.html">Bearbeiten</a>
+                <a class="nav-link" href="anlegen.html" class="nav-link">TODO anlegen</a>
               </li>
             </ul>
           </div>
       </nav>
+      <div id="ubersichtBlock" style="display: block">
         <!-- Bootstrap layout mit container-fluid -->
         <div class="container-fluid wrapper flex-grow-1">
             <!-- Grid system fur die columns-->
             <div class="row">
-              <table class="table">
+              <table class="table" id="todoTable">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>Aufgabe</th>
-                    <th>Fortschritt</th>
                     <th>Deadline</th>
+                    <th>Fortschritt</th>
                     <th></th>
                     <th></th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>Vorlesung schauen.</td>
-                    <td>0%</td>
-                    <td>26.04.2021</td>
-                    <td><a href="edit.html">Bearbeiten</a></td>
-                    <td><a href="ubersicht.html" class="cdt-btn cdt-btn-primary delete" id="button">Löschen</a></td>
-                  </tr>
-                  <tr class="table-success">
-                    <td>Blumen gießen</td>
-                    <td>100%</td>
-                    <td>27.04.2021</td>
-                    <td><a href="edit.html">Bearbeiten</a></td>
-                    <td><a href="ubersicht.html" class="cdt-btn cdt-btn-primary delete" id="button">Löschen</a></td>
-                  </tr>
-                  <tr>
-                    <td>Aufräumen</td>
-                    <td>50%</td>
-                    <td>25.04.2021</td>
-                    <td><a href="edit.html">Bearbeiten</a></td>
-                    <td><a href="ubersicht.html" class="cdt-btn cdt-btn-primary delete" id="button">Löschen</a></td>
-                  </tr>
+                <tbody id="todoTableBody">
                 </tbody>
               </table>             
             </div>  
-        </div>          
-        <!-- Footer -->
-         <footer class="bg-light text-center text-lg-start footer navbar-fixed-bottom">
+        </div>   
+      </div>
+
+
+
+
+      <div id="editBlock" style="display: none">
+        <div class="container-fluid wrapper flex-grow-1">
+            
+            <div class="row">
+                <div class="col col-md-5"><h1>TODO editieren (#<p id="todoID" style="display: inline"></p>)</h1></div>
+                <div class="col col-sm-7 align-self-center"><h3>Hier können Sie ein TODO editieren.</h3></div>                      
+            </div>  
+
+            <div class="row">
+                <form class="form-group row g-2" id="addForm" onsubmit="editTodo(event)" action="#">
+                    <div class="col-lg-6">
+                      <label for="todoText" class="form-label">Aufgabe</label>
+                      <input type="text" name="name" class="form-control" id="todoText" maxlength="160" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="todoDeadline" class="form-label">Deadline</label>
+                      <input type="date" name="deadline" class="form-control" id="todoDeadline" required>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="todoProzent" class="form-label">Fortschritt</label>
+                      <input type="number" name="prozent" min="0" max="100" class="form-control" id="todoProzent" required>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary submit">Submit</button>              
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div> 
+        
+      </div>    
+      <!-- Footer -->
+      <footer class="bg-light text-center text-lg-start footer navbar-fixed-bottom">
           <!-- Copyright -->
           <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2021 Mario Wojciechowski, Aikaterini Anastasiadou.

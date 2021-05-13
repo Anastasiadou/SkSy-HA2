@@ -5,11 +5,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class TodoController {
 
     @Autowired
     private TodoService todoService;
+
 
     @RequestMapping("/todos")
     public List<Todo> getAllTodos(){
